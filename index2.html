@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office Chairs Store</title>
+</head>
+<body>
+    <h1>Welcome to our Office Chairs Store</h1>
+    <ul>
+        {% for chair in chairs %}
+            <li>
+                <strong>{{ chair.name }}</strong>
+                <p>Price: ${{ chair.price }}</p>
+                <form action="/checkout" method="post">
+                    <input type="hidden" name="chair_id" value="{{ chair.id }}">
+                    <input type="submit" value="Add to Cart">
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
